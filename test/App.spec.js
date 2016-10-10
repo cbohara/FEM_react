@@ -7,7 +7,7 @@ const ShowCard = require('../js/ShowCard')
 const { shallow, mount } = require('enzyme')
 const { shows } = require('../public/data')
 
-describe('<Search />', () => {
+describe('<Search /> ', () => {
   it('should render the brand', () => {
     const wrapper = shallow(<Search />)
     expect(wrapper.contains(<h1 className='brand'>svideo</h1>)).to.be.true
@@ -27,3 +27,11 @@ describe('<Search />', () => {
     expect(wrapper.find('.show-card').length).to.equal(2)
   })
 })
+
+
+
+
+
+
+
+
