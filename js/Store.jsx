@@ -6,7 +6,7 @@ const initialState = {
   searchTerm: ''
 }
 
-const rootReducer = (state=initialState, action) => {
+const rootReducer = (state = initialState, action) => {
   switch (action.type) {
     case SET_SEARCH_TERM:
       return reduceSearchTerm(state, action)
@@ -29,7 +29,7 @@ const mapStateToProps = (state) => {
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    setSearchTerm: (searchTerm) {
+    setSearchTerm: (searchTerm) => {
       dispatch({type: SET_SEARCH_TERM, value: searchTerm})
     }
   }
@@ -37,4 +37,4 @@ const mapDispatchToProps = (dispatch) => {
 
 const connector = reactRedux.connect(mapStateToProps, mapDispatchToProps)
 
-module.exports = { connector, store }
+module.exports = {connector, store}
