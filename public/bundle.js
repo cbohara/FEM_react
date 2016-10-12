@@ -19811,7 +19811,7 @@
 	var Router = _require.Router;
 	var Route = _require.Route;
 	var IndexRoute = _require.IndexRoute;
-	var hashHistory = _require.hashHistory;
+	var browserHistory = _require.browserHistory;
 
 	var _require2 = __webpack_require__(224);
 
@@ -19822,6 +19822,16 @@
 	var Provider = _require3.Provider;
 
 
+	var myRoutes = function myRoutes() {
+	  return React.createElement(
+	    Route,
+	    { path: '/', component: Layout },
+	    React.createElement(IndexRoute, { component: Landing }),
+	    React.createElement(Route, { path: '/search', component: Search }),
+	    React.createElement(Route, { path: '/details/:id', component: Details })
+	  );
+	};
+
 	var App = React.createClass({
 	  displayName: 'App',
 	  render: function render() {
@@ -19830,18 +19840,14 @@
 	      { store: store },
 	      React.createElement(
 	        Router,
-	        { history: hashHistory },
-	        React.createElement(
-	          Route,
-	          { path: '/', component: Layout },
-	          React.createElement(IndexRoute, { component: Landing }),
-	          React.createElement(Route, { path: '/search', component: Search }),
-	          React.createElement(Route, { path: '/details/:id', component: Details, onEnter: this.assignShow })
-	        )
+	        { history: browserHistory },
+	        myRoutes()
 	      )
 	    );
 	  }
 	});
+
+	App.Routes = myRoutes;
 
 	module.exports = App;
 
@@ -27884,7 +27890,7 @@
 	            year,
 	            ')'
 	          ),
-	          React.createElement('img', { className: 'video-poster', src: 'public/img/posters/' + poster }),
+	          React.createElement('img', { className: 'video-poster', src: '/public/img/posters/' + poster }),
 	          React.createElement(
 	            'p',
 	            { className: 'video-description' },
