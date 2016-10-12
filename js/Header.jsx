@@ -2,15 +2,14 @@ const React = require('react')
 const { Link } = require('react-router')
 const { func, bool, string } = React.PropTypes
 const { connector } = require('./Store')
-
 const Header = React.createClass({
   propTypes: {
     setSearchTerm: func,
     showSearch: bool,
     searchTerm: string
   },
-  handleSearchTermEvent (e) {
-    this.props.setSearchTerm(e.target.value)
+  handleSearchTermEvent (event) {
+    this.props.setSearchTerm(event.target.value)
   },
   render () {
     let utilSpace
@@ -29,7 +28,7 @@ const Header = React.createClass({
       <header className='header'>
         <h1 className='brand'>
           <Link to='/' className='brand-link'>
-          svideo
+            svideo
           </Link>
         </h1>
         {utilSpace}

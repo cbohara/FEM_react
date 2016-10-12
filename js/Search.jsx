@@ -5,11 +5,6 @@ const { object, string } = React.PropTypes
 const { connector } = require('./Store')
 
 const Search = React.createClass({
-  getInitialState () {
-    return {
-      searchTerm: ''
-    }
-  },
   propTypes: {
     route: object,
     searchTerm: string

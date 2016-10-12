@@ -25926,30 +25926,39 @@
 
 	var React = __webpack_require__(1);
 
+	var _require = __webpack_require__(160);
+
+	var Link = _require.Link;
+
+
 	var ShowCard = function ShowCard(props) {
 	  return React.createElement(
-	    'div',
-	    { className: 'show-card' },
-	    React.createElement('img', { src: 'public/img/posters/' + props.poster, className: 'show-card-img' }),
+	    Link,
+	    { to: '/details/' + props.imbdID },
 	    React.createElement(
 	      'div',
-	      { className: 'show-card-text' },
+	      { className: 'show-card' },
+	      React.createElement('img', { src: 'public/img/posters/' + props.poster, className: 'show-card-img' }),
 	      React.createElement(
-	        'h3',
-	        { className: 'show-card-title' },
-	        props.title
-	      ),
-	      React.createElement(
-	        'h4',
-	        { className: 'show-card-year' },
-	        '(',
-	        props.year,
-	        ')'
-	      ),
-	      React.createElement(
-	        'p',
-	        { className: 'show-card-description' },
-	        props.description
+	        'div',
+	        { className: 'show-card-text' },
+	        React.createElement(
+	          'h3',
+	          { className: 'show-card-title' },
+	          props.title
+	        ),
+	        React.createElement(
+	          'h4',
+	          { className: 'show-card-year' },
+	          '(',
+	          props.year,
+	          ')'
+	        ),
+	        React.createElement(
+	          'p',
+	          { className: 'show-card-description' },
+	          props.description
+	        )
 	      )
 	    )
 	  );
@@ -25962,7 +25971,8 @@
 	  title: string.isRequired,
 	  description: string.isRequired,
 	  year: string.isRequired,
-	  poster: string.isRequired
+	  poster: string.isRequired,
+	  imbdID: string.isRequired
 	};
 
 	module.exports = ShowCard;
