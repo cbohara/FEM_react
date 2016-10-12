@@ -25816,7 +25816,13 @@
 	var React = __webpack_require__(1);
 	var ShowCard = __webpack_require__(224);
 	var Header = __webpack_require__(225);
-	var object = React.PropTypes.object;
+	var _React$PropTypes = React.PropTypes;
+	var object = _React$PropTypes.object;
+	var string = _React$PropTypes.string;
+
+	var _require = __webpack_require__(226);
+
+	var connector = _require.connector;
 
 
 	var Search = React.createClass({
@@ -25828,10 +25834,8 @@
 	  },
 
 	  propTypes: {
-	    route: object
-	  },
-	  handleSearchTermChange: function handleSearchTermChange(searchTerm) {
-	    this.setState({ searchTerm: searchTerm });
+	    route: object,
+	    searchTerm: string
 	  },
 	  render: function render() {
 	    var _this = this;
@@ -25839,16 +25843,12 @@
 	    return React.createElement(
 	      'div',
 	      { className: 'container' },
-	      React.createElement(Header, {
-	        handleSearchTermChange: this.handleSearchTermChange,
-	        searchTerm: this.state.searchTerm,
-	        showSearch: true
-	      }),
+	      React.createElement(Header, { showSearch: true }),
 	      React.createElement(
 	        'div',
 	        { className: 'shows' },
 	        this.props.route.shows.filter(function (show) {
-	          return (show.title + ' ' + show.description).toUpperCase().indexOf(_this.state.searchTerm.toUpperCase()) >= 0;
+	          return (show.title + ' ' + show.description).toUpperCase().indexOf(_this.props.searchTerm.toUpperCase()) >= 0;
 	        }).map(function (show) {
 	          return React.createElement(ShowCard, _extends({}, show, { key: show.imdbID }));
 	        })
@@ -25857,7 +25857,7 @@
 	  }
 	});
 
-	module.exports = Search;
+	module.exports = connector(Search);
 
 /***/ },
 /* 224 */
